@@ -1,0 +1,40 @@
+{% extends 'registration/base.html' %}
+{% load bootstrap4%}
+{% block content %}
+<div class="row">
+    <div class="card">
+    
+    
+       <div class="auth-form">
+          <h5 class="card-header white-text text-center py-4" style=" background-color:#D0B8D6">
+              {% if form.errors %}
+              <p> Password or Username is incorrect </p>
+            {% endif %}
+             <strong>Login</strong>
+          </h5>
+          <form action="" method="POST" enctype="multipart/form-data">
+             {% csrf_token %}
+             {{ form.as_p }}
+             
+             <span style="border-radius: 20px;" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i>Log in</span>
+    
+          </form>
+          <p>Don't have an account?</p>
+              <a href="/accounts/register/">Sign up here</a>
+       </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <style>
+    .card{
+      display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #B28BBC;
+    }
+    body{
+       background-color: #89B7AC;
+    }
+    </style>
+{% endblock%}

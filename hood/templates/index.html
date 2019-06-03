@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{block.super}} 
+{% load bootstrap4 %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 sidebar1">
+            
+                <br>
+                <div class="left-navigation">
+                  
+                    <ul class="list">
+                        <h5><strong>BUSINESSES/AMENITIES IN YOUR AREA</strong></h5>
+                        <hr>
+                        {% for business in businesses %}
+                        <li>Business name:{{business.business_name}}</li>
+                        <li>Category:{{business.category}}</li>
+                        <li>Email:{{business.email}}</li>
+                        {% endfor%}
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-8 main-content">
+              <h1>Notification Bar for your Area </h1>
+              <hr>
+              {% for update in updates %}
+              
+            <!--Main content code to be written here --> 
+            <h3>{{update.title}}</h3>
+            <p>{{update.post}}</p>
+            <h6>By:{{update.post_by}}</h6>
+            <h6>Email:{{update.email}}</h6>
+        {% endfor %}
+          </div>
+ 
+    </div>
+    </div>
+</body>
+<style>
+.sidebar1 {
+    background: #F17153;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#F17153, #F58D63, #f1ab53);
+    /* Standard syntax */
+    padding: 0px;
+    min-height: 100%;
+}
+.logo {
+    max-height: 130px;
+}
+.logo>img {
+    margin-top: 30px;
+    padding: 3px;
+    border: 3px solid white;
+    border-radius: 100%;
+}
+.list {
+    color: #fff;
+    list-style: none;
+    padding-left: 0px;
+}
+.list::first-line {
+    color: rgba(255, 255, 255, 0.5);
+}
+.list> li, h5 {
+    padding: 5px 0px 5px 40px;
+}
+.list>li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 5px solid white;
+    color: white;
+    font-weight: bolder;
+    padding-left: 35px;
+}.main-content{
+text-align:center;
+}
+</style>
+
+
+{% endblock %}

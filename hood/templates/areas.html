@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% load bootstrap4%}
+{% block content %}
+<header>
+
+
+  
+
+<div class="container">
+
+
+<div class="row">
+  
+
+    {% for place in area%}
+    <div class="col-lg-4 col-md-12 mb-4">
+    <div class="card card-image" style="background-image: url('https://cdn.pixabay.com/photo/2014/08/11/11/07/urban-415480__340.jpg');background-repeat: no-repeat;">
+    
+      <!-- Content -->
+      <div class="text-white text-center d-flex align-items-center rgba-black-strong py-4 px-5" style="height: 100%">
+        <div>
+          <h5 class="pink-text"><i ></i> Location</h5>
+          <h1 class="card-title pt-2"><strong>{{place.name}}</strong></h1>
+         
+        
+          
+
+          <a class="btn btn-pink" href="{% url 'home' place.pk %}"><i class="fas fa-clone left" ></i> View Location</a>
+        </div>
+      </div>
+    
+    </div>
+    </div>
+
+    {% endfor %}
+    
+    </div>
+    
+    <!-- Card -->
+    <a href="{% url 'update'%}">next</a>
+  </div> 
+
+ <style>
+ 
+ a{
+   color: aliceblue;
+ }
+ body{
+   background-color:#89B7AC;
+ }
+ </style>
+{% endblock %}
