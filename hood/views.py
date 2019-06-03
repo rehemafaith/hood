@@ -62,3 +62,11 @@ def update(request):
   return render(request,'newupdate.html',context)
 
 def business(request):
+
+  form = BusinessForm(request.POST,request.FILES)
+  if request.method == 'POST':
+
+    if form.is_valid():
+      biz = form.save(commit=False)
+      biz.area = request.user.profile.neighbourhood
+      
