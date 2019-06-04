@@ -7,6 +7,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!------ Include the above in your HEAD tag ---------->
 
 <body>
@@ -20,7 +21,7 @@
                     <ul class="list">
                         <h5><strong>BUSINESSES/AMENITIES IN YOUR AREA</strong></h5>
                         <hr>
-                        {% for business in businesses %}
+                        {% for business in business %}
                         <li>Business name:{{business.business_name}}</li>
                         <li>Category:{{business.category}}</li>
                         <li>Email:{{business.email}}</li>
@@ -45,6 +46,54 @@
  
     </div>
     </div>
+    <div class="rows">
+        <div class="col-sm-6">
+    <div class="w3-container">
+     
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add a business</button>
+      
+        <div id="id01" class="w3-modal">
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <form action="" method="POST" >
+            {% csrf_token %}
+            {% bootstrap_form businessform %}
+        <br />
+        <div class="row">
+        <div class="col-xs-12 col-md-12 form-group">
+          <button class="btn btn-info-lg" type="submit">Submit</button>
+        </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">    
+    <div class="w3-container">
+ 
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add an Update</button>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+    <form action="" method="POST" >
+      {% csrf_token %}
+      {% bootstrap_form updateform %}
+  <br />
+  <div class="row">
+  <div class="col-xs-12 col-md-12 form-group">
+    <button class="btn btn-info-lg" type="submit">Submit</button>
+  </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+            
 </body>
 <style>
 .sidebar1 {
