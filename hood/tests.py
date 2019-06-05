@@ -14,10 +14,10 @@ class areaTestClass(TestCase):
   def test_save_method(self):
       self.nairobi.create_business()
       area = Area.objects.all()
-      self.assertTrue(len(editors) > 0 )
+      self.assertTrue(len(areas) > 0 )
 
-  def test_save_method(self):
-      self.nairobi.create_business()
+  def test_delete_method(self):
+      self.nairobi.delete_business()
       area = Area.objects.all()
-      self.assertTrue(len(editors) > 0 )
+      self.assertTrue(len(areas) > 0 )
 
