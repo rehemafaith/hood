@@ -15,7 +15,3 @@ class areaTestClass(TestCase):
       self.nairobi.create_business()
       area = Area.objects.all()
       self.assertTrue(len(editors) > 0 )
-
-
-
-             
