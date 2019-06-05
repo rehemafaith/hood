@@ -8,10 +8,6 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <header>
-
-
-  
-
 <div class="container">
 
 
@@ -50,7 +46,7 @@
         <form action="{% url 'area'%}" method="POST" >
           {% csrf_token %}
           {{form.as_p}}
-      <br />
+      <br/>
       <div class="row">
       <div class="col-xs-12 col-md-12 form-group">
         <button class="btn btn-info-lg" type="submit">Submit</button>
