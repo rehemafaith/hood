@@ -25,4 +25,6 @@ class areaTestClass(TestCase):
       self.nairobi.update_neighbourhood()
       area = Area.objects.all()
       self.assertTrue(len(areas) > 0 )
+ 
 
+    
