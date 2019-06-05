@@ -26,5 +26,3 @@ class areaTestClass(TestCase):
       area = Area.objects.all()
       self.assertTrue(len(areas) > 0 )
  
-
-       
