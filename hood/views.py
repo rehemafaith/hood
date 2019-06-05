@@ -8,8 +8,17 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/accounts/login')
 def area(request):
   area = Area.objects.all()
-  
-  return render(request,'areas.html',{'area':area})
+  current_user = request.user
+  if request.method == 'POST':
+    form = HoodForm(request.POST, request.FILES)
+    if form.is_valid():
+      hood = form.save(commit=False)
+      hood.profile =current_user
+      form.save()
+      return redirect('area')
+  else:
+      form = HoodForm()
+  return render(request,'areas.html',{'area':area},{'form':form})
 
 @login_required(login_url='/accounts/login/')
 def home(request,update_id):

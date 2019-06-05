@@ -14,10 +14,7 @@ class HoodForm(forms.ModelForm):
    '''
    To add new neighbourhood data.
    '''
-   
-
-
-  
+ 
    class Meta:
       model = Area
       fields = ['name']

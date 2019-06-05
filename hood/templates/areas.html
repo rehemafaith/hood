@@ -1,6 +1,12 @@
 {% extends 'base.html'%}
 {% load bootstrap4%}
 {% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!------ Include the above in your HEAD tag ---------->
+
 <header>
 
 
@@ -37,6 +43,26 @@
     </div>
     
    
+    <div class="w3-container">
+     
+      <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add a Location</button>
+    
+      <div id="id01" class="w3-modal">
+        <div class="w3-modal-content">
+          <div class="w3-container">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <form action="{% url 'area'%}" method="POST" >
+          {% csrf_token %}
+          {{form.as_p}}
+      <br />
+      <div class="row">
+      <div class="col-xs-12 col-md-12 form-group">
+        <button class="btn btn-info-lg" type="submit">Submit</button>
+      </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div> 
 
  <style>
