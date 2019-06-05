@@ -17,7 +17,7 @@ def home(request,update_id):
   area = Area.objects.get(id = update_id)
   businesses = Business.area_businesses(area.id)
   updates = Updates.area_updates(area.id)
-  business = Business.objects.all()
+
 
   updateform = UpdateForm(request.POST,request.FILES)
   if request.method == 'POST':
@@ -32,21 +32,21 @@ def home(request,update_id):
     updateform = UpdateForm() 
 
 
-  businessform = BusinessForm(request.POST,request.FILES)
+  businessform = BusinessForm(request.POST)
   if request.method == 'POST':
 
     if businessform.is_valid():
       biz = businessform.save(commit=False)
-      biz.area = request.user.profile.neighbourhood
-      biz.author = request.user.profile
-      businessform.save()
+      biz.area = area
+      biz.author = request.user
+      biz.save()
     return redirect('home',update_id)
   else:
       businessform = BusinessForm()
   
   context = {
     'updates':updates,
-    'business':business,
+    'businesses':businesses,
     'updateform':updateform,
     'businessform':businessform,
   }
@@ -54,3 +54,9 @@ def home(request,update_id):
 
   return render(request,'index.html',context)
 
+@login_required(login_url='/accounts/login/')
+def profile(request):
+
+ profile = Profile.objects.all()
+
+ return render(request,'profile.html',{'profile':profile})

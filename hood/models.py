@@ -63,7 +63,7 @@ class Business(models.Model):
 
     @classmethod
     def area_businesses(cls,area):
-        businesses = cls.objects.filter(area__pk=area)
+        businesses = Business.objects.filter(area__pk=area)
         return businesses
 
     def create_business(self):
