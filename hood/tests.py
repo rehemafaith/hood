@@ -12,4 +12,8 @@ class areaTestClass(TestCase):
     self.asserTrue(isinstance(self.nairobi,Area))
 
   def test_save_method(self):
-    
+      self.nairobi.create_business()
+      area = Area.objects.all()
+      self.assertTrue(len(editors) > 0 )
+
+   
