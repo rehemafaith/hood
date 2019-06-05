@@ -16,4 +16,6 @@ class areaTestClass(TestCase):
       area = Area.objects.all()
       self.assertTrue(len(editors) > 0 )
 
-      
+
+
+             
