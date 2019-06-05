@@ -21,3 +21,8 @@ class areaTestClass(TestCase):
       area = Area.objects.all()
       self.assertTrue(len(areas) > 0 )
 
+  def test_update_method(self):
+      self.nairobi.update_neighbourhood()
+      area = Area.objects.all()
+      self.assertTrue(len(areas) > 0 )
+
